@@ -10,11 +10,29 @@
         <h1>{{title}}</h1>
         <p>{{message|safe}}</p>
         <table>
-        <form action="{% url 'TopPage' %}" method="POST">
-            {% csrf_token %}
-            {{ form.as_table }}
-            <tr><td></td><td><input type="submit" value="click"></td></tr>
-        </form>
+            <form action="{% url 'TopPage' %}" method="POST">
+                {% csrf_token %}
+                {{ form.as_table }}
+                <tr><td></td><td><input type="submit" value="click"></td></tr>
+            </form>
+        </table>
+        <table>
+            <tr>
+                <th>id</th>
+                <th>No</th>
+                <th>task</th>
+                <th>begin time</th>
+                <th>end time</th>
+            </tr>
+            {% for item in data %}
+            <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.Number}}</td>
+                <td>{{item.TaskName}}</td>
+                <td>{{item.TimeStart}}</td>
+                <td>{{item.TimeEnd}}</td>
+            </tr>
+            {% endfor %}
         </table>
     </body>
 </html>

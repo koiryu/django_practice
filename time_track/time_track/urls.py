@@ -20,5 +20,6 @@ import TimeTrackTool
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('TimeTrackTool/', include('TimeTrackTool.urls')),  # URLとViewを組み合わせる！
+    # アプリケーションごとにURLを分けていく
+    path('TimeTrackTool/', include('TimeTrackTool.urls')), 
 ]
